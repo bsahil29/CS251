@@ -1,0 +1,107 @@
+\documentclass[a4paper, 10pt]{report}
+
+\usepackage{lipsum,lineno}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage{geometry}
+ 
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=22mm,
+ top=22mm,
+ }
+
+\title{Report}
+\author{Sahil Bansal}
+\date{}
+\begin{document}
+\maketitle
+
+\listoffigures
+
+\begin{figure}
+\centering
+\includegraphics[width=\columnwidth]{out1.eps}
+ \caption{Scatter plot for 1 thread}
+ \label{fig:Scatter plot for 1 thread}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\columnwidth]{out2.eps}
+ \caption{Scatter plot for 2 threads}
+ \label{fig:Scatter plot for 2 threads}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\columnwidth]{out4.eps}
+ \caption{Scatter plot for 4 threads}
+ \label{fig:Scatter plot for 4 threads}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\columnwidth]{out8.eps}
+ \caption{Scatter plot for 8 threads}
+ \label{fig:Scatter plot for 8 threads}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\columnwidth]{out16.eps}
+ \caption{Scatter plot for 16 threads}
+ \label{fig:Scatter plot for 16 threads}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\columnwidth]{line1.eps}
+ \caption{line graph for 1 thread}
+ \label{fig:line graph for 1 thread}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\columnwidth]{line2.eps}
+ \caption{line graph for 2 threads}
+ \label{fig:line graph for 2 threads}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\columnwidth]{line4.eps}
+ \caption{line graph for 4 threads}
+ \label{fig:line graph for 4 threads}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\columnwidth]{line8.eps}
+ \caption{line graph for 8 threads}
+ \label{fig:line graph for 8 threads}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\columnwidth]{line16.eps}
+ \caption{line graph for 16 threads}
+ \label{fig:line graph for 16 threads}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\columnwidth]{bar.eps}
+ \caption{Average Speedup Bar Graph}
+ \label{fig:Bar Graph for Average Speedup}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\columnwidth]{error.eps}
+ \caption{Average Speedup with Error Bars}
+ \label{fig:Average Speedup Bar Graph with Errors}
+\end{figure}
+\end{document}

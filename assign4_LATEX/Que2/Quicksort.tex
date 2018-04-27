@@ -1,0 +1,66 @@
+Quicksort is designed as a three-step divide-and-conquer process for sorting an input sequence in an array \cite{cormen}. For any given subarray, $A[i..j]$, the process is as follows,\\
+\textbf{Divide}: The array $A[i..j]$ is partitioned into two subarrays $A[i..k]$ and $A[k + 1..j]$ such that all elements in $A[i..k]$ is less than or equal to all elements in $A[k + 1..j]$. A partitioning procedure is called to determine $k$ such that at the end of partitioning, the element at the $k^{th}$ position (i.e., $A[k]$) does not change its position in the final output array.
+\begin{algorithm}
+  \caption{Partition procedure of \textbf{Quicksort} algorithm.}
+  \label{algo:ins_sort1}
+  \begin{algorithmic}[1]
+     \Procedure{Partition}{$A,i,j$}\newline
+     \Comment{A is an array of N integers, $A[1..N]$}\newline
+     \Comment{$i$ and $j$ are the start and end of subarray}
+      \State $x \leftarrow$ $A[i]$
+      \State $y \leftarrow$ $i-1$
+      \State $z \leftarrow$ $j+1$
+      \While {($true$)}
+          \State $z \leftarrow z-1$
+           %\Comment{Iterate to find the place for this element in the sorted array}
+          \While {($A[z] > x$)}
+            \State $z \leftarrow z-1$
+          \EndWhile
+          \State $y \leftarrow y+1$
+          \While {($A[y] < x$)}
+            \State $y \leftarrow y+1$ 
+          \EndWhile
+          \If{$y < z$}
+            \State Swap $A[y] \leftrightarrow A[z]$
+            \Else
+            \State return $x$
+          \EndIf
+      \EndWhile
+     \EndProcedure 
+  \end{algorithmic}
+\end{algorithm}
+\textbf{Conquer}:Recursively invoke \textbf{Quicksort} on the two subarrays. This procedure conquers the complexity by applying the same operations in two subarrays.\\
+\textbf{Merge}: Quicksort does not require merge or combine operation as the entire array $A[i..j]$ is sorted in place.\\
+\indent In the heart of \textbf{Quicksort}, there is a partition procedure as shown in Algorithm $1$. A pivot element $x$ is selected. The first inner while loop (line \#$6$) continues examining elements until it finds an element that is smaller than or equal to the pivot element. Similarly, the second inner while loop (line \#$9$) continues examining elements until it finds an element that is greater than or equal to the pivot element. If indices $y$ and $z$ have not exchanged their side around the pivot, the elements at $A[y]$ and $A[z]$ are exchanged. Otherwise, the procedure returns the index $z$, such that all elements to the left of $z$ are smaller than or equal to $A[z]$ and all elements to the right of $z$ are greater than or equal to $A[z]$.\\
+\indent The main recursive procedure for \textbf{Quicksort} is presented in Algorithm $2$. Initial invocation is performed by call QUICKSORT$(A,1,N)$ where $N$ is the length of array $N$.
+\begin{algorithm}
+  \caption{\textbf{Quicksort} recursion.}
+  \label{algo:ins_sort1}
+  \begin{algorithmic}[1]
+     \Procedure{Quicksort}{$A,i,j$}\newline
+     \Comment{Quicksort procedure called with $A, 1, N$}
+          \If{$i < j$}
+            \State $k \leftarrow$ PARTITION$(A,i,j)$
+            \State QUICKSORT$(A,i,k)$
+            \State QUICKSORT$(A,k+1,j)$
+          \EndIf
+     \EndProcedure 
+  \end{algorithmic}
+\end{algorithm}
+\subsection{Time complexity analysis of
+Quicksort}
+The worst case of \textbf{Quicksort} occurs when an array of length $N$ , gets partitioned into two subarrays of size $N-1$ and $1$ in every recursive invocation of QUICKSORT procedure in Algorithm $2$. The partitioning procedure presented in Algorithm $1$, takes $\Theta(n)$ time, the recurrence relation for running time is,
+%\begin{equation*}
+    $$T(n)=T(n-1)+\Theta(n)$$
+%\end{equation*}
+As it is evident that $T(1) = \Theta(1)$, the recurrence is
+solved as follows,
+%\begin{equation*}
+    $$T(n)=T(n-1)+\Theta(n)$$
+    $$=\sum_{k=1}^{n} \Theta(k)$$
+%\end{equation*}
+ $$=\Theta\Bigg(\sum_{k=1}^{n} k\Bigg)$$
+ $$=\Theta(n^2)$$
+\indent Therefore, if the partitioning is always maximally unbalanced, the running time is $\Theta(n^2)$. Intutively, if an input sequence is almost sorted, \textbf{Quicksort} will perform poorly. In the best case, partitioning divides the array into two equal parts. Thus, the recurrence for the best case is given by,
+$$T(n)=2T\Bigg(\dfrac{n}{2}\Bigg)+\Theta(n)$$
+which evaluates to $\Theta(n log_2 n)$. Using a comparatively involved analysis, the average running time of \textbf{Quicksort} can be determined to be $O(n$ lg$ n)$.

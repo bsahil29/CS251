@@ -1,0 +1,11 @@
+Sorting is one of the most fundamental operations in computer science useful in numerous applica- tions. Given a sequence of numbers as input, the output should provide a non-decreasing sequence of numbers as output. More formally, we define a sorting problem as follows \cite{cormen},\\
+\textbf{Input}: A sequence of $n$ numbers $<a_1, a_2, ..., a_n>$.\\
+\textbf{Output}: A reordered sequence (of size n) $<a_1', a_2', ..., a_n'>$ of the input sequence such that $a_1' \leq a_2' \leq...\leq a_n'$.\\
+Consider the following example. Given an input sequence $<8, 34, 7, 9, 15, 91, 15>$, a sorting algorithm should return $<7, 8, 9, 15, 15, 34, 91>$ as output.\\
+\indent A fundamental problem like sorting has attracted many researchers who contributed with innovative algorithms to solve the problem of sorting \textit{efficiently} \cite{martin}. Efficiency of an algorithm depends on primarily on two aspects,\\
+\begin{itemize}
+    \item \textbf{Time complexity} is a formalism that captures running time of an algorithm in terms of the input size. Normally, asymptotic behavior on the input size is used to analyze the time complexity of algorithms.
+    \item \textbf{Space complexity} is a formalism that cap- tures amount of memory used by an algorithm in terms of input size. Like time complexity analysis, asymptotic analysis is used for space complexity.
+\end{itemize}
+In the branch of algorithms and complexity in computer science, space complexity takes a back seat compared to time complexity. Recently, another parameter of computing i.e., energy consumption has become popular. Roy et al. \cite{roy} proposed an energy complexity model for algorithms. In this doc- ument, we will deal with time complexity of sorting algorithms.\\
+\indent One class of algorithms which are based on element comparison are commonly known as comparison based sorting algorithms. In this document we will provide a brief overview of \textbf{Quicksort}, a commonly used comparison based sorting algorithm \cite{hoare}. Quicksort is a sorting algorithm based on \textit{divide-and-conquer} paradigm of algorithm design. Further, we will derive the lower bound of any comparison based sorting algorithm to be $\Omega(n log_2 n)$ for an input size of $n$.
